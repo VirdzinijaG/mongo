@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 
 const client = new MongoClient("mongodb://localhost:27017") // prisijungiama prie mongoDB
 
@@ -29,7 +29,7 @@ try {
     // const zmones = await db.collection("zmones").find({alga: {$gt: 200}}).toArray(); // atspausdins reiksmes, kur alga didesne nei 200
 
     await db.collection("zmones").updateOne( // keiciama informacija apie zmogu
-        { _id: ObjectId("6135e0e54e781c4912caa704") }, // nurodomas koks id, value
+        { _id: ObjectId("6135e0e54e781c4912caa704")}, // nurodomas koks id, value
         {
             $set: { // set nustatyti naujas reiksmes laukams
                 pavarde: "pakeista pavarde", // pakeista reiksme
